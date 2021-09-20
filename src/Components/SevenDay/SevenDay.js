@@ -10,7 +10,7 @@ const SevenDay = () => {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-                "x-rapidapi-key": "754ff53bddmshf6707473573a10bp14282cjsn75119d32c627"
+                "x-rapidapi-key": process.env.REACT_APP_API_KEY
 	    }
         })
         .then(response => response.json())
