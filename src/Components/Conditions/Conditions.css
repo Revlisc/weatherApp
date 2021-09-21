@@ -18,7 +18,69 @@
     margin: 10px auto;
 }
 
+.dataRow {
+    display: inline-block;
+}
+
+.currentContainer {
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(202, 209, 211, 0.75);
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.currentWeather {
+    font-size: 72px;
+    display: inline-flex;
+    color:rgb(236, 242, 247);
+}
+
+.currentInfo {
+    display: flex;
+}
+
+.extraInfo {
+    display: block;
+    margin-top: 3rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+.forecastContainer {
+    background-color: rgba(202, 209, 211, 0.9);
+    border: 1px solid gray;
+    border-radius: 1.5rem;
+    max-width: 60%;
+    margin: 0 auto;
+}
+
 @keyframes spin {
     0% {transform: rotate(0deg);}
     100% {transform: rotate(360deg);}
+}
+
+@media only screen and (max-width: 425px) {
+    .currentInfo {
+        display: block;
+    }
+
+    .currentWeather {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 1120px) {
+    .forecastContainer {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .forecastContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    }
 }

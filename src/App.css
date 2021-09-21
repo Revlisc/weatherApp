@@ -3,6 +3,8 @@
   min-height: 100vh;
   flex-direction: column;
   display: flex;
+  background-image: url('./weatherbackground.jpg');
+  
 }
 
 .App-logo {

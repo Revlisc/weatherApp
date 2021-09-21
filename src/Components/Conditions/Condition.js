@@ -10,9 +10,16 @@ const Conditions = (props) => {
            {props.loading && <div className='loading' />}
 
            {props.responseObj.cod === 200 ?
-               <div>
-                   <p><strong>{props.responseObj.name}</strong></p>
-                   <p>It is currently {Math.round(props.responseObj.main.temp)} degrees out with {props.responseObj.weather[0].description}.</p>
+               <div className='currentContainer'>
+                   <h2 className='cityHeader'><strong>{props.responseObj.name}</strong></h2>
+                   <div className='currentInfo'>
+                        <div ><img className="wicon" src={`http://openweathermap.org/img/wn/${props.responseObj.weather[0].icon}@4x.png`} alt="Weather icon"/></div>
+                        <h1 className='currentWeather'> {Math.round(props.responseObj.main.temp)}° </h1>
+                        <div className='extraInfo'>
+                            <p >{props.responseObj.weather[0].description}</p>
+                            <p >Humidity: {props.responseObj.main.humidity}%</p>
+                        </div>
+                    </div>
                </div>
            : null
            }

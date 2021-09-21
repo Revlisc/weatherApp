@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Conditions from '../Conditions/Condition'
+import SevenDayConditions from '../SevenDayCondition/SevenDayCondition';
+import SevenDay from '../SevenDay/SevenDay';
 
 import './Forecast.css';
 
@@ -12,6 +14,9 @@ const Forecast = () => {
     let [error, setError] = useState(false)
     let [loading, setLoading] = useState(false)
 
+    let [clicked, setClicked] = useState(false)
+
+    //new additions
     
     
     function getForecast(e) {
@@ -56,27 +61,33 @@ const Forecast = () => {
         //{JSON.stringify(responseObj)}
         //</div>
     }
+    //<button className='button' type='button' onClick={() => <SevenDay city={city} unit={unit} />}>See full forecast</button>
+    
 
     return (
         <div>
-            <h2>Find Your City's Forecast</h2>
             
-            <form onSubmit={getForecast}>
+            <form onSubmit={getForecast} className='searchbar'>
                 <input className='form' type='text' placeHolder='Enter City' maxLength='50' value={city} onChange={(e) => setCity(e.target.value)} />
                 <label>
                     <input className='selector' type='radio' name='units' checked={unit === 'imperial'} value='imperial' onChange={(e) => setUnit(e.target.value)} />
-                    Fahrenheit
+                    °F
                 </label>
                 <label>
                     <input className='selector' type='radio' name='units' checked={unit === 'metric'} value='metric' onChange={(e) => setUnit(e.target.value)} />
-                    Celcius
+                    °C
                 </label>
-                <button className='button' type='submit'>Get Forecast</button>
+                <button className='button' type='submit' onClick={() => setClicked(true)}>Get Forecast</button>
             </form>
 
             <Conditions responseObj={responseObj} error={error} loading={loading} />
+            {clicked ? <SevenDay city={city} unit={unit} /> : null }
         </div>
     )
+
+    
 }
+
+
 
 export default Forecast;

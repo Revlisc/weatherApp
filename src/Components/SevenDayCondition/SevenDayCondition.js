@@ -55,7 +55,7 @@ const Data = ({sevenData}) => {
 
     
     return (
-        <div>
+        <div className='forecastContainer'>
             {
                 dataArr.map(day => {
                     
@@ -63,10 +63,16 @@ const Data = ({sevenData}) => {
                     
                     const {feels_like, temp_max, temp_min, temp} = main
                     return (
-                        <div>
+                        <div className='dataRow'>
                             <h4>{dt_txt.slice(5, 10)}</h4>
                             <div ><img className="wicon" src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} alt="Weather icon"/></div>
-                            <p>It is currently {Math.round(temp)}, but feels like {Math.round(feels_like)}, with a high of {temp_max} and low of {temp_min}. The weather is {day.weather[0].description}</p>
+                            <h3>{Math.round(temp)}</h3>
+                            <h5>{Math.round(feels_like)}</h5>
+                            <div className='highLow'>
+                                <p> {temp_max}° </p>
+                                <p> {temp_min}°</p>
+                            </div>
+                            <p> Expect {day.weather[0].description}</p>
                         </div>
                         
                     )
@@ -90,7 +96,7 @@ const SevenDayConditions = ({ sevenData }) => {
         <div className='wrap'>
 
             <div>
-                <p><strong>{name}</strong></p>
+                
                 <Data sevenData={sevenData} />
             </div>
 

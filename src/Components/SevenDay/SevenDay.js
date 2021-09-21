@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import SevenDayConditions from '../SevenDayCondition/SevenDayCondition';
 import '../Forecast/Forecast.css'
 
-const SevenDay = () => {
+const SevenDay = ({city, unit}) => {
     
     let [sevenData, setSevenData] = useState(null)
 
-    let [city, setCity] = useState('');
-    let [unit, setUnit] = useState('imperial');
+    // let [city, setCity] = useState('');
+    // let [unit, setUnit] = useState('imperial');
 
     let [error, setError] = useState(false)
     let [loading, setLoading] = useState(false)
@@ -16,7 +16,7 @@ const SevenDay = () => {
 
     function getSevenDay(e) {
         
-        e.preventDefault()
+        //e.preventDefault()
 
         
 
@@ -37,14 +37,8 @@ const SevenDay = () => {
     }
     //<SevenDayConditions sevenData={sevenData} />
     //<button onClick={getSevenDay}>Get Forecast</button>
-
-    return (
-        <div>
-           <h2>Find Current Weather Conditions</h2>
-           
-           
-
-           <form onSubmit={getSevenDay}>
+    /*
+    <form onSubmit={getSevenDay}>
                 <input
                     className='form' 
                     type="text"
@@ -77,7 +71,12 @@ const SevenDay = () => {
                 </label>
                 <button className='button' type="submit">Get Forecast</button>
             </form>
+    */
 
+    return (
+        <div>
+           
+            <button onClick={() => getSevenDay()} > click me</button>
            {sevenData && <SevenDayConditions sevenData={sevenData} />  }
        </div>
     )
