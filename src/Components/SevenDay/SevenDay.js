@@ -76,7 +76,7 @@ const SevenDay = ({city, unit}) => {
     return (
         <div>
            
-            <button onClick={() => getSevenDay()} > click me</button>
+            <button className='button' onClick={() => getSevenDay()} >Five-Day Forecast</button>
            {sevenData && <SevenDayConditions sevenData={sevenData} />  }
        </div>
     )

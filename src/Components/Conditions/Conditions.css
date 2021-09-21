@@ -20,6 +20,7 @@
 
 .dataRow {
     display: inline-block;
+    padding-bottom: 2rem;
 }
 
 .currentContainer {
@@ -34,7 +35,7 @@
 .currentWeather {
     font-size: 72px;
     display: inline-flex;
-    color:rgb(236, 242, 247);
+    color:rgb(252, 252, 252);
 }
 
 .currentInfo {
@@ -43,17 +44,44 @@
 
 .extraInfo {
     display: block;
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-right: 2rem;
     margin-left: 2rem;
+    font-weight: bold;
+    color: white;
+    justify-content: center;
+    align-items: center;
 }
 
 .forecastContainer {
-    background-color: rgba(202, 209, 211, 0.9);
+    background-color: rgb(114,188,249, 0.9);
     border: 1px solid gray;
     border-radius: 1.5rem;
     max-width: 60%;
     margin: 0 auto;
+}
+
+.highLow {
+    display: inline;
+}
+
+.tempHi {
+    display: inline;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.tempLo {
+    display: inline;
+    font-size: 30px;
+    font-weight: bold;
+    color: lightgray;
+}
+
+.forecastHeader {
+    font-size: 2rem;
+    color: white;
 }
 
 @keyframes spin {
@@ -81,6 +109,10 @@
 @media only screen and (max-width: 850px) {
     .forecastContainer {
         display: grid;
-        grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+        grid-template-columns: repeat(auto-fill,minmax(125px,1fr));
+        align-items: center;
+        justify-content: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
 }

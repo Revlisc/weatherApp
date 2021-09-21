@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Conditions from '../Conditions/Condition'
-import SevenDayConditions from '../SevenDayCondition/SevenDayCondition';
 import SevenDay from '../SevenDay/SevenDay';
 
 import './Forecast.css';
@@ -16,7 +15,7 @@ const Forecast = () => {
 
     let [clicked, setClicked] = useState(false)
 
-    //new additions
+    
     
     
     function getForecast(e) {

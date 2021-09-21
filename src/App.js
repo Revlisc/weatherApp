@@ -1,8 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Forecast from './Components/Forecast/Forecast'
-import SevenDay from './Components/SevenDay/SevenDay'
-import ForecastCall from './Components/ForecastCall'
+
+
 
 function App() {
   return (

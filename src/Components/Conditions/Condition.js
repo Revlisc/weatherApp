@@ -16,8 +16,9 @@ const Conditions = (props) => {
                         <div ><img className="wicon" src={`http://openweathermap.org/img/wn/${props.responseObj.weather[0].icon}@4x.png`} alt="Weather icon"/></div>
                         <h1 className='currentWeather'> {Math.round(props.responseObj.main.temp)}° </h1>
                         <div className='extraInfo'>
-                            <p >{props.responseObj.weather[0].description}</p>
+                            <p >Conditions: {props.responseObj.weather[0].description}</p>
                             <p >Humidity: {props.responseObj.main.humidity}%</p>
+                            <p >Feels like: {Math.round(props.responseObj.main.feels_like)}°</p>
                         </div>
                     </div>
                </div>
