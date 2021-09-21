@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
 import SevenDayConditions from '../SevenDayCondition/SevenDayCondition';
+import '../Forecast/Forecast.css'
 
 const SevenDay = () => {
     
     let [sevenData, setSevenData] = useState(null)
 
-    function getSevenDay() {
-        fetch("https://community-open-weather-map.p.rapidapi.com/forecast?q=san%20francisco", {
+    let [city, setCity] = useState('');
+    let [unit, setUnit] = useState('imperial');
+
+    let [error, setError] = useState(false)
+    let [loading, setLoading] = useState(false)
+
+    const codedCity = encodeURIComponent(city)
+
+    function getSevenDay(e) {
+        
+        e.preventDefault()
+
+        
+
+        fetch(`https://community-open-weather-map.p.rapidapi.com/forecast?units=${unit}&q=${codedCity}`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
@@ -22,12 +36,47 @@ const SevenDay = () => {
         });
     }
     //<SevenDayConditions sevenData={sevenData} />
+    //<button onClick={getSevenDay}>Get Forecast</button>
 
     return (
         <div>
            <h2>Find Current Weather Conditions</h2>
            
-           <button onClick={getSevenDay}>Get Forecast</button>
+           
+
+           <form onSubmit={getSevenDay}>
+                <input
+                    className='form' 
+                    type="text"
+                    placeholder="Enter City"
+                    maxLength="50"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    />
+                <label>
+                    <input
+                        className='selector' 
+                        type="radio"
+                        name="units"
+                        checked={unit === "imperial"}
+                        value="imperial"
+                        onChange={(e) => setUnit(e.target.value)}
+                        />
+                    Fahrenheit
+                </label>
+                <label>
+                    <input
+                        className='selector' 
+                        type="radio"
+                        name="units"
+                        checked={unit === "metric"}
+                        value="metric"
+                        onChange={(e) => setUnit(e.target.value)}
+                        />
+                    Celcius
+                </label>
+                <button className='button' type="submit">Get Forecast</button>
+            </form>
 
            {sevenData && <SevenDayConditions sevenData={sevenData} />  }
        </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Conditions/Conditions.css'
 
 //<p>It is currently {Math.round(props.sevenData.list[0].main.feels_like)}.</p>
 // list[i].main.map(day => {
@@ -24,7 +25,7 @@ const Data = ({sevenData}) => {
         list
     } = sevenData
     const dataArr = []
-    const dateArr = []
+    
     
     console.log(list)
     for(let i = 0; i < 40; i+=8) {

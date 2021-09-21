@@ -10,6 +10,7 @@ function App() {
         <h1>Weather App</h1>
       </div>
       <div>
+        <Forecast />
         <SevenDay />
       </div>
     </div>

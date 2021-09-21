@@ -60,7 +60,7 @@ const Forecast = () => {
     return (
         <div>
             <h2>Find Your City's Forecast</h2>
-            {JSON.stringify(responseObj)}
+            
             <form onSubmit={getForecast}>
                 <input className='form' type='text' placeHolder='Enter City' maxLength='50' value={city} onChange={(e) => setCity(e.target.value)} />
                 <label>
